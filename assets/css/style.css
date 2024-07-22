@@ -1,0 +1,761 @@
+/* General reset and styles */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    color: white;
+    line-height: 1.6;
+    background-color: #000;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../img/bg.jpg) center center / cover no-repeat fixed;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+/* Header and Navigation */
+.header {
+    position: relative;
+    width: 100%;
+}
+/* General styles for header text */
+.header_text {
+    text-align: center;
+    padding: 100px 20px; /* Add ample space for emphasis */
+    position: relative;
+    top: 90%;
+    color: #fff;
+    font-family: 'Poppins', sans-serif; /* Modern font */
+}
+
+/* Main heading styles */
+.header_text h1 {
+    font-size: 80px; /* Large, attention-grabbing size */
+    margin: 0;
+    line-height: 1.2;
+    position: relative;
+    top: -90px;
+}
+
+/* Highlight effect for the span element */
+.header_text h1 span {
+    color: #00D2FF; /* Bright, modern color */
+    position: relative;
+    display: inline-block;
+}
+
+/* Animation effect for the span */
+.header_text h1 span::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 5px;
+    background: #00D2FF;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+/* Hover effect for the span */
+.header_text h1 span:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+//* Resume Link Styling */
+.resume {
+    text-align: center;
+    margin: 10px auto; /* Adjusted margin to move the link up */
+}
+
+.resume a {
+    font-size: 20px;
+    letter-spacing: 4px;
+    text-decoration: none;
+    color: #000; /* Black color for the text */
+    background-color: #fff; /* White background for contrast */
+    border: 2px solid #000; /* Black border */
+    border-radius: 35px;
+    margin: 10px;
+    padding: 10px 20px; /* Adjust padding for better appearance */
+    display: inline-block;
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+    position: relative;
+    overflow: hidden;
+}
+
+.resume a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1); /* Slightly dark overlay */
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.resume a:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.resume a:hover {
+    color: #fff; /* White text on hover */
+    background-color: #000; /* Black background on hover */
+    border-color: #fff; /* White border on hover */
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .header_text h1 {
+        font-size: 60px; /* Adjust for smaller screens */
+    }
+
+    .resume a {
+        font-size: 18px;
+        padding: 12px 25px;
+    }
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #111;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 24px;
+    color: #fff;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    background-color: #fff;
+    height: 3px;
+    width: 25px;
+    margin: 3px 0;
+}
+
+/* Desktop Navigation Menu */
+#nav-menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+#nav-menu li {
+    margin: 0 10px;
+}
+
+#nav-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    #nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: #111;
+        width: 200px;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    #nav-menu.active {
+        display: flex;
+    }
+
+    #nav-menu li {
+        margin: 10px 0;
+    }
+
+    #nav-menu a {
+        font-size: 18px;
+    }
+}
+
+/* Scroll Up Button */
+#scroll-up-btn {
+    display: none; /* Hidden by default */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #111;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+#scroll-up-btn:hover {
+    background-color: #333;
+}
+
+/* Main Content Styles */
+/* Ensure the container spans the full width */
+.container {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in the width */
+}
+
+/* Center the text within its container */
+.sub-title2 {
+    text-align: center;
+    font-size: 40px; /* Adjust as needed */
+    color: #fff; /* Ensure text color is visible */
+    margin-bottom: 20px; /* Space below the title */
+}
+
+/* Flexbox setup for horizontal alignment */
+.school-img {
+    display: flex;
+    justify-content: space-around; /* Distribute space around items */
+    align-items: center; /* Align items vertically in the center */
+    flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+}
+
+/* Individual image sections */
+.school-img > div {
+    text-align: center; /* Center text and images within each section */
+    margin: 0 10px; /* Space between items */
+}
+
+/* Optional: Adjust image size */
+.school-img img {
+    max-width: 100px; /* Adjust based on your design */
+    height: auto;
+    margin-top: 10px; /* Space above images */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .school-img {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+    }
+
+    .school-img > div {
+        margin-bottom: 20px; /* Space between stacked items */
+    }
+}
+
+
+.header_text {
+    text-align: center;
+    padding: 20% 0;
+}
+
+.header_text h1 {
+    font-size: 130px;
+}
+
+.header_text p {
+    font-size: 35px;
+}
+
+h1 span {
+    color: rgb(0, 238, 255);
+}
+
+/* Resume link styles */
+.resume {
+    text-align: center;
+    margin: -30px 0 20px 0; /* Negative top margin to move it up, bottom margin for spacing */
+}
+
+.resume a {
+    display: inline-block;
+    font-size: 20px;
+    padding: 15px 30px;
+    color: #fff;
+    background: #00D2FF; /* Bright color for the button */
+    border-radius: 25px; /* Rounded corners */
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Button hover effects */
+.resume a:hover {
+    background-color: #0077FF; /* Darker shade on hover */
+    transform: translateY(-5px); /* Slight lift effect */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .header_text h1 {
+        font-size: 60px; /* Adjust for smaller screens */
+    }
+
+    .resume a {
+        font-size: 18px;
+        padding: 12px 25px;
+    }
+}
+
+
+/* Section Styles */
+section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.sub-title, .sub-title2, .sub-title3 {
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.about-column1, .about-column2 {
+    padding: 10px;
+    flex: 1;
+}
+
+.about-column1 {
+    flex-basis: 30%;
+    position: relative;
+}
+
+.about-column1 img {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    left: 8px;
+    border-radius: 5%;
+}
+
+.about-column2 {
+    flex-basis: 70%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sub-text {
+    font-size: 23px;
+    color: #e7dfdf;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.intro-text {
+    font-size: 18px;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.accomplishment-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.accomplishment-card {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.accomplishment-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.accomplishment-section {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.accomplishment-description {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.contact-details {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.contact-item {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px;
+    text-align: center;
+}
+
+.contact-item i {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.contact-item p {
+    font-size: 18px;
+}
+
+.social-media {
+    margin-top: 20px;
+}
+
+.social-media p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.social-icons li {
+    margin: 0 10px;
+}
+
+.social-icons a {
+    text-decoration: none;
+    color: #333;
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+/* Center the text within its container */
+.parent-container {
+    text-align: center; /* Center text horizontally */
+    padding: 20px 0; /* Optional: add some padding if needed */
+}
+
+/* Ensure sub-title3 is styled properly */
+.sub-title3 {
+    font-size: 50px; /* Or your desired size */
+    color: #fff; /* Ensure text color is visible */
+}
+
+/* Styles for the skills section */
+.skills-section {
+    /* Dark background for contrast */
+    padding: 40px 20px; /* Spacing around the section */
+    text-align: center; /* Center align the content */
+}
+
+/* Skill cards styling */
+.skill-card {
+    background-color: #fff; /* White background for the cards */
+    color: #333; /* Dark text for contrast */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    padding: 20px; /* Spacing inside the card */
+    margin: 10px; /* Space between cards */
+    width: 200px; /* Fixed width for uniformity */
+    display: inline-block; /* Align cards in a row */
+    vertical-align: top; /* Align top of cards */
+}
+
+/* Icon styling */
+.skill-icon {
+    font-size: 40px; /* Larger icons for visibility */
+    color: #007BFF; /* Bright color for icons */
+    margin-bottom: 10px; /* Space below the icon */
+}
+
+/* Skill name styling */
+.skill-name {
+    font-size: 18px; /* Font size for skill name */
+    font-weight: bold; /* Make the text bold */
+    margin: 0; /* Remove default margin */
+    color: #333; /* Dark text color */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .skill-card {
+        width: 150px; /* Adjust card width for smaller screens */
+    }
+
+    .skill-icon {
+        font-size: 30px; /* Adjust icon size */
+    }
+
+    .skill-name {
+        font-size: 16px; /* Adjust font size */
+    }
+}
+
+/* Certificates Section */
+#certificates-section {
+    padding: 80px 0;
+    text-align: center;
+    
+}
+
+#certificates-section .sub-title3 {
+    font-size: 50px;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+.certificates-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.certificate-card {
+    flex: 1 1 300px;
+    max-width: 300px;
+}
+
+.certificate-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+/* Center the attendance-header */
+.attendance-header {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    padding: 20px 0; /* Optional: add some padding if needed */
+}
+
+/* Ensure sub-title3 is centered within the attendance-header */
+.sub-title3 {
+    font-size: 50px; /* Or your desired size */
+    color: #fff; /* Ensure text color is visible */
+}
+
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    #certificates-section .sub-title3 {
+        font-size: 40px;
+    }
+
+    .certificate-card {
+        flex: 1 1 250px;
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    #certificates-section .sub-title3 {
+        font-size: 35px;
+    }
+
+    .certificate-card {
+        flex: 1 1 200px;
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    #certificates-section .sub-title3 {
+        font-size: 30px;
+    }
+
+    .certificate-card {
+        flex: 1 1 150px;
+        max-width: 150px;
+    }
+}
+
+/* Skills Section */
+.skills-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.skills-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.skill-card {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    flex: 1 1 200px;
+}
+
+.skill-icon {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.skill-name {
+    font-size: 18px;
+}
+/* General styles for the iframe container */
+.responsive-iframe-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* Aspect Ratio for 16:9 */
+    height: 0;
+    overflow: hidden;
+    background: #000; /* Optional, for better visibility if iframe is empty */
+}
+
+/* Styles for the iframe */
+.responsive-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Scroll Up Button */
+#scroll-up-btn {
+    display: none; /* Hidden by default */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ffffff; /* White background */
+    color: #000; /* Black icon color for contrast */
+    border: 2px solid #ffffff; /* White border */
+    border-radius: 50%;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 24px; /* Adjusted for better visibility */
+    text-align: center;
+    line-height: 1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    z-index: 1000;
+    transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#scroll-up-btn:hover {
+    background-color: #f1f1f1; /* Slightly darker white on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
+}
+
+#scroll-up-btn:focus {
+    outline: none; /* Remove default outline on focus */
+}
+
+
+
+
+
+/* Media Queries for responsiveness */
+@media (min-width: 768px) {
+    .responsive-iframe-container {
+        padding-top: 75%; /* Adjust aspect ratio for larger screens if needed */
+    }
+}
+
+@media (max-width: 767px) {
+    .responsive-iframe-container {
+        padding-top: 100%; /* Adjust aspect ratio for smaller screens */
+    }
+}
+
+
+/* Responsive Adjustments for Navigation */
+@media (max-width: 768px) {
+    .header_text h1 {
+        font-size: 80px;
+    }
+
+    .header_text p {
+        font-size: 25px;
+    }
+
+    .contact-item {
+        flex: 1 1 100%;
+    }
+
+    .about-column1, .about-column2 {
+        flex: 1 1 100%;
+        padding: 0;
+    }
+
+    .about-column1 img {
+        position: static;
+        width: 100%;
+        height: auto;
+    }
+
+    .social-icons img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .resume a {
+        font-size: 18px;
+    }
+}
